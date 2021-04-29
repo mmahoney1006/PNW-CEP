@@ -1,6 +1,6 @@
 <?php
 // Set up the database connection
-$dsn = 'mysql:host=pnw-cep-db.c2xjkeyaldgu.us-east-2.rds.amazonaws.com;dbname=pnw_cep';
+$dsn = 'mysql:host=localhost;dbname=pnw_cep';
 $username = 'masterAdmin';
 $password = 'McM3012516';
 $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
