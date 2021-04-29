@@ -3,6 +3,7 @@ require_once('../../util/main.php');
 require_once('util/secure_conn.php');
 require_once('util/valid_admin.php');
 require_once('model/pnw_handbook_db.php');
+require_once('model/section_db.php');
 
 $action = strtolower(filter_input(INPUT_POST, 'action'));
 if ($action == NULL) {
@@ -40,12 +41,13 @@ switch ($action) {
                     FILTER_VALIDATE_INT);
         }
         $policy = get_policy($policy_id);
+		$sections = get_sections();
         include('policy_add_edit.php');
         break;
 		
     case 'add_policy':
 		$name = filter_input(INPUT_POST, 'name');
-		$section = filter_input(INPUT_POST, 'section');
+		$section = filter_input(INPUT_POST, 'section_id', FILTER_VALIDATE_INT);
 		$information = filter_input(INPUT_POST, 'information');
 		
 		
@@ -65,7 +67,7 @@ switch ($action) {
 		$policy_id = filter_input(INPUT_POST, 'policy_id', 
 				FILTER_VALIDATE_INT);
 		$name = filter_input(INPUT_POST, 'name');
-		$section = filter_input(INPUT_POST, 'section');
+		$section = filter_input(INPUT_POST, 'section_id', FILTER_VALIDATE_INT);
 		$information = filter_input(INPUT_POST, 'information');
 		
 		

@@ -17,8 +17,11 @@
         <?php else: ?>
             <input type="hidden" name="action" value="add_policy">
         <?php endif; ?>
+		<label>*Required Fields</label>
+		<br>
+		<br>
 
-		<label>Name:</label>
+		<label>*Name:</label>
 		<?php
 		if (isset($policy_id)) { ?>
 			<input type="text" name="name"
@@ -28,17 +31,24 @@
 		<?php } ?>
 		<br>
 		
-		<label>Section:</label>
-		<?php
-		if (isset($policy_id)) { ?>
-			<input type="text" name="section" size="50"
-			value="<?php echo htmlspecialchars($policy['Section']); ?>">
-		<?php } else { ?>
-			<input type="text" name="section" value="">
-		<?php } ?>
+		<label>*Section:</label>
+		<select name="section_id">
+		<?php foreach ($sections as $section) :
+			if ($section['ID'] == $policy['Section']) {
+				$selected = 'selected';
+			} else {
+				$selected = '';
+			}
+			?>
+			<option value="<?php echo $section['ID']; ?>"<?php
+				echo $selected ?>>
+				<?php echo htmlspecialchars($section['Name']); ?>
+			</option>
+		<?php endforeach; ?>
+		</select>
 		<br>
-			
-		<label>Information:</label>
+		
+		<label>*Information:</label>
 		<?php
 		if (isset($policy_id)) { ?>
 			<textarea name="information" rows="10" cols="50"><?php echo $policy['Information']; ?></textarea>
@@ -49,8 +59,12 @@
 		
 		<label>&nbsp;</label>
         <input type="submit" value="Submit">
-        <input type="button" value="Cancel" action=".">
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 
 </main>
 <?php include '../../view/footer.php'; ?>

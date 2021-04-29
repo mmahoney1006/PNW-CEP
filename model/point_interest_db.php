@@ -1,5 +1,4 @@
 <?php
-
 function get_pois() {
 	global $db;
 	$query = 'SELECT * FROM POINT_INTEREST';
@@ -35,15 +34,16 @@ function get_poi($id) {
     }
 }
 
-function add_poi($name, $address, $contact, $phonenum, $description, $link) {
+function add_poi($name, $campus, $address, $contact, $phonenum, $description, $link) {
     global $db;
     $query = 'INSERT INTO POINT_INTEREST
-                 (Name, Address, Contact, PhoneNum, Description, Link)
+                 (Name, Campus, Address, Contact, PhoneNum, Description, Link)
               VALUES
-                 (:name, :address, :contact, :phonenum, :description, :link)';
+                 (:name, :campus, :address, :contact, :phonenum, :description, :link)';
     try {
         $statement = $db->prepare($query);
         $statement->bindValue(':name', $name);
+		$statement->bindValue(':campus', $campus);
         $statement->bindValue(':address', $address);
         $statement->bindValue(':contact', $contact);
         $statement->bindValue(':phonenum', $phonenum);
@@ -59,11 +59,12 @@ function add_poi($name, $address, $contact, $phonenum, $description, $link) {
     }
 }
 
-function update_poi($id, $name, $address, $contact, $phonenum, $description, $link) {
+function update_poi($id, $name, $campus, $address, $contact, $phonenum, $description, $link) {
     global $db;
     $query = '
         UPDATE POINT_INTEREST
         SET Name = :name,
+			Campus = :campus,
             Address = :address,
 			Contact = :contact,
 			PhoneNum = :phonenum,
@@ -74,6 +75,7 @@ function update_poi($id, $name, $address, $contact, $phonenum, $description, $li
         $statement = $db->prepare($query);
 		$statement->bindValue(':id', $id);
         $statement->bindValue(':name', $name);
+		$statement->bindValue(':campus', $campus);
         $statement->bindValue(':address', $address);
         $statement->bindValue(':contact', $contact);
         $statement->bindValue(':phonenum', $phonenum);

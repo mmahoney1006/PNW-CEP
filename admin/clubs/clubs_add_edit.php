@@ -17,8 +17,11 @@
         <?php else: ?>
             <input type="hidden" name="action" value="add_club">
         <?php endif; ?>
+		<label>*Required Fields</label>
+		<br>
+		<br>
 
-		<label>Name:</label>
+		<label>*Name:</label>
 		<?php
 		if (isset($club_id)) { ?>
 			<input type="text" name="name"
@@ -69,8 +72,12 @@
 		
 		<label>&nbsp;</label>
         <input type="submit" value="Submit">
-        
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 
 </main>
 <?php include '../../view/footer.php'; ?>

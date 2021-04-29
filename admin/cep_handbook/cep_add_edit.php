@@ -17,8 +17,11 @@
         <?php else: ?>
             <input type="hidden" name="action" value="add_cep">
         <?php endif; ?>
+		<label>*Required Fields</label>
+		<br>
+		<br>
 
-		<label>Name:</label>
+		<label>*Name:</label>
 		<?php
 		if (isset($cep_id)) { ?>
 			<input type="text" name="name"
@@ -29,7 +32,7 @@
 		<br>
 		
 		
-		<label>Information:</label>
+		<label>*Information:</label>
 		<?php
 		if (isset($cep_id)) { ?>
 			<textarea name="information" rows="10" cols="50"><?php echo $cep['Information']; ?></textarea>
@@ -40,8 +43,12 @@
 		
 		<label>&nbsp;</label>
         <input type="submit" value="Submit">
-        <a href="."><input type="button" value="Cancel"></a>
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 
 </main>
 <?php include '../../view/footer.php'; ?>

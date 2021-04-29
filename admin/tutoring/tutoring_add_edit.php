@@ -17,8 +17,11 @@
         <?php else: ?>
             <input type="hidden" name="action" value="add_tutoring">
         <?php endif; ?>
+		<label>*Required Fields</label>
+		<br>
+		<br>
 
-		<label>Course:</label>
+		<label>*Course:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
 			<input type="text" name="course"
@@ -28,7 +31,7 @@
 		<?php } ?>
 		<br>
 		
-		<label>Title:</label>
+		<label>*Title:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
 			<input type="text" name="title"
@@ -38,7 +41,7 @@
 		<?php } ?>
 		<br>
 		
-		<label>Monday Hours:</label>
+		<label>*Monday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
 			<input type="text" name="monday"
@@ -48,7 +51,7 @@
 		<?php } ?>
 		<br>
 		
-		<label>Tuesday Hours:</label>
+		<label>*Tuesday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
 			<input type="text" name="tuesday"
@@ -58,7 +61,7 @@
 		<?php } ?>
 		<br>
 		
-		<label>Wednesday Hours:</label>
+		<label>*Wednesday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
 			<input type="text" name="wednesday"
@@ -68,7 +71,7 @@
 		<?php } ?>
 		<br>
 		
-		<label>Thursday Hours:</label>
+		<label>*Thursday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
 			<input type="text" name="thursday"
@@ -78,7 +81,7 @@
 		<?php } ?>
 		<br>
 		
-		<label>Friday Hours:</label>
+		<label>*Friday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
 			<input type="text" name="friday"
@@ -91,8 +94,12 @@
 		
 		<label>&nbsp;</label>
         <input type="submit" value="Submit">
-        
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 
 </main>
 <?php include '../../view/footer.php'; ?>

@@ -2,6 +2,7 @@
 <main>
     <h1>Database Error</h1>
     <p>An error occurred connecting to the database.</p>
+	<p><?php echo $string; ?></p>
     <p>Error message: <?php echo $error_message; ?></p>
 </main>
 <?php include 'view/footer.php'; ?>

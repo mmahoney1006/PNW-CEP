@@ -2,6 +2,7 @@
 require_once('../../util/main.php');
 require_once('util/secure_conn.php');
 require_once('util/valid_admin.php');
+require_once('model/campus_db.php');
 require_once('model/point_interest_db.php');
 
 $action = strtolower(filter_input(INPUT_POST, 'action'));
@@ -40,11 +41,13 @@ switch ($action) {
                     FILTER_VALIDATE_INT);
         }
         $poi = get_poi($poi_id);
+		$campuses = get_campuses();
         include('poi_add_edit.php');
         break;
 		
     case 'add_poi':
 		$name = filter_input(INPUT_POST, 'name');
+		$campus = filter_input(INPUT_POST, 'campus_id', FILTER_VALIDATE_INT);
 		$address = filter_input(INPUT_POST, 'address');
 		$contact = filter_input(INPUT_POST, 'contact');
 		$phonenum = filter_input(INPUT_POST, 'phonenum');
@@ -58,7 +61,7 @@ switch ($action) {
                       Check all fields and try again.';
             include('../../errors/error.php');
         } else {
-            $poi_id = add_poi($name, $address, $contact, $phonenum, $description, $link);
+            $poi_id = add_poi($name, $campus, $address, $contact, $phonenum, $description, $link);
             $pois = get_pois();
 			include('poi_list.php');
         }
@@ -68,6 +71,7 @@ switch ($action) {
 		$poi_id = filter_input(INPUT_POST, 'poi_id', 
 				FILTER_VALIDATE_INT);
 		$name = filter_input(INPUT_POST, 'name');
+		$campus = filter_input(INPUT_POST, 'campus_id', FILTER_VALIDATE_INT);
 		$address = filter_input(INPUT_POST, 'address');
 		$contact = filter_input(INPUT_POST, 'contact');
 		$phonenum = filter_input(INPUT_POST, 'phonenum');
@@ -81,7 +85,7 @@ switch ($action) {
                       Check all fields and try again.';
             include('../../errors/error.php');
         } else {
-            update_poi($name, $address, $contact, $phonenum, $description, $link);
+            update_poi($poi_id, $name, $campus, $address, $contact, $phonenum, $description, $link);
             $pois = get_pois();
             include('poi_list.php');
         }

@@ -17,8 +17,9 @@
         <?php else: ?>
             <input type="hidden" name="action" value="add_campus">
         <?php endif; ?>
+		<label>*Required Fields</label>
 
-        <label>Name:</label>
+        <label>*Name:</label>
 		<?php
 		if (isset($campus_id)) { ?>	
 			<input type="text" name="name"
@@ -28,7 +29,7 @@
 		<?php } ?>
         <br>
 
-        <label>Address:</label>
+        <label>*Address:</label>
 		<?php
 		if (isset($campus_id)) { ?>
 			<input type="text" name="address" 
@@ -38,7 +39,7 @@
 			<input type="text" name="address" value="">
 		<?php } ?>
         <br>
-        <label>Phone Number:</label>
+        <label>*Phone Number:</label>
 		<?php
 		if (isset($campus_id)) { ?>
 			<input type="text" name="phonenum" 
@@ -51,7 +52,11 @@
 
         <label>&nbsp;</label>
         <input type="submit" value="Submit">
-        
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 </main>
 <?php include '../../view/footer.php'; ?>

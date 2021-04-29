@@ -17,8 +17,11 @@
         <?php else: ?>
             <input type="hidden" name="action" value="add_faq">
         <?php endif; ?>
+		<label>*Required Fields</label>
+		<br>
+		<br>
 
-		<label>Question:</label>
+		<label>*Question:</label>
 		<?php
 		if (isset($faq_id)) { ?>
 			<input type="text" name="question" size="50"
@@ -28,7 +31,7 @@
 		<?php } ?>
 		<br>
 				
-		<label>Answer:</label>
+		<label>*Answer:</label>
 		<?php
 		if (isset($faq_id)) { ?>
 			<textarea name="answer" rows="10" cols="50"><?php echo $faq['Answer']; ?></textarea>
@@ -39,8 +42,12 @@
 				
 		<label>&nbsp;</label>
         <input type="submit" value="Submit">
-        
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 
 </main>
 <?php include '../../view/footer.php'; ?>

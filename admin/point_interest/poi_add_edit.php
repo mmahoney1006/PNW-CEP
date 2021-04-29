@@ -18,7 +18,7 @@
             <input type="hidden" name="action" value="add_poi">
         <?php endif; ?>
 
-		<label>Name:</label>
+		<label>*Name:</label>
 		<?php
 		if (isset($poi_id)) { ?>
 			<input type="text" name="name"
@@ -27,8 +27,26 @@
 			<input type="text" name="name" value="">
 		<?php } ?>
 		<br>
+		
+		<label>*Campus:</label>
+		<select name="campus_id">
+		<?php foreach ($campuses as $campus) :
+			if ($campus['ID'] == $poi['Campus']) {
+				$selected = 'selected';
+			} else {
+				$selected = '';
+			}
+			?>
+			<option value="<?php echo $campus['ID']; ?>"<?php
+				echo $selected ?>>
+				<?php echo htmlspecialchars($campus['Name']); ?>
+			</option>
+		<?php endforeach; ?>
+		</select>
+		<br>
+
 				
-		<label>Address:</label>
+		<label>*Address:</label>
 		<?php
 		if (isset($poi_id)) { ?>
 			<input type="text" name="address" size="43"
@@ -79,8 +97,12 @@
 
 		<label>&nbsp;</label>
         <input type="submit" value="Submit">
-        
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 
 </main>
 <?php include '../../view/footer.php'; ?>

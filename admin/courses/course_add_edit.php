@@ -17,8 +17,9 @@
         <?php else: ?>
             <input type="hidden" name="action" value="add_course">
         <?php endif; ?>
+		<label>*Required Fields</label>
 
-		<label>Course:</label>
+		<label>*Course:</label>
 		<?php
 		if (isset($course_id)) { ?>
 			<input type="text" name="name"
@@ -28,7 +29,7 @@
 		<?php } ?>
 		<br>
 		
-		<label>Title:</label>
+		<label>*Title:</label>
 		<?php
 		if (isset($course_id)) { ?>
 			<input type="text" name="title" size="50"
@@ -49,8 +50,12 @@
 		
 		<label>&nbsp;</label>
         <input type="submit" value="Submit">
-        
+		<br>
     </form>
+	<form action="." method="post">
+		<label>&nbsp;</label>
+		<input type="submit" value="Cancel">
+	</form>
 
 </main>
 <?php include '../../view/footer.php'; ?>
