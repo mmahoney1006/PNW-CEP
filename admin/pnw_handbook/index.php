@@ -1,6 +1,6 @@
 <?php
 require_once('../../util/main.php');
-require_once('util/secure_conn.php');
+//require_once('util/secure_conn.php');
 require_once('util/valid_admin.php');
 require_once('model/pnw_handbook_db.php');
 require_once('model/section_db.php');
