@@ -18,7 +18,9 @@
             <input type="hidden" name="action" value="add_course">
         <?php endif; ?>
 		<label>*Required Fields</label>
-
+		<br>
+		<br>
+		
 		<label>*Course:</label>
 		<?php
 		if (isset($course_id)) { ?>

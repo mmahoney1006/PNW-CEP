@@ -7,15 +7,23 @@
 	<?php if (count($policies) == 0) : ?>
         <p>There is no policy in the system.</p>
     <?php else : ?>
-		<?php foreach ($policies as $policy) : ?>
-			<p>
-				<b><?php echo htmlspecialchars($policy['Name']); ?></b>&emsp;
-				<a href="?action=show_add_edit_form&amp;policy_id=<?php
-				  echo $policy['ID']; ?>">Edit</a>
-				<a href="?action=delete_policy&amp;policy_id=<?php
-				  echo $policy['ID']; ?>">Delete</a>
-			</p>
+		<table>
+			<?php foreach ($policies as $policy) : ?>
+				<tr>
+					<td>
+						<b><?php echo htmlspecialchars($policy['Name']); ?></b>
+					</td>
+					<td>
+						<a href="?action=show_add_edit_form&amp;policy_id=<?php
+						  echo $policy['ID']; ?>">Edit</a>
+					</td>
+					<td>
+						<a href="?action=delete_policy&amp;policy_id=<?php
+						  echo $policy['ID']; ?>">Delete</a>
+					</td>
+				</tr>
 			<?php endforeach; ?>
+		</table>
 	<?php endif; ?>
 	<br><br>
     <h2>Links</h2>

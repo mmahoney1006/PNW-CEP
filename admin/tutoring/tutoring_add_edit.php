@@ -10,7 +10,7 @@
     ?>
     <h1>Tutoring Manager - <?php echo $heading_text; ?></h1>
     <form action="index.php" method="post" id="add_tutoring_form">
-        <?php if (isset($building_id)) : ?>
+        <?php if (isset($tutoring_id)) : ?>
             <input type="hidden" name="action" value="update_tutoring">
             <input type="hidden" name="tutoring_id"
                    value="<?php echo $tutoring_id; ?>">
@@ -44,50 +44,45 @@
 		<label>*Monday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
-			<input type="text" name="monday"
-			value="<?php echo htmlspecialchars($building['Monday']); ?>">
+			<textarea name="monday" rows="5" cols="20"><?php echo $tutoring['Monday']; ?></textarea>
 		<?php } else { ?>
-			<input type="text" name="monday" value="">
+			<textarea name="monday" rows="5" cols="20"></textarea>
 		<?php } ?>
 		<br>
 		
 		<label>*Tuesday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
-			<input type="text" name="tuesday"
-			value="<?php echo htmlspecialchars($building['Tuesday']); ?>">
+			<textarea name="tuesday" rows="5" cols="20"><?php echo $tutoring['Tuesday']; ?></textarea>
 		<?php } else { ?>
-			<input type="text" name="tuesday" value="">
+			<textarea name="tuesday" rows="5" cols="20"></textarea>
 		<?php } ?>
 		<br>
 		
 		<label>*Wednesday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
-			<input type="text" name="wednesday"
-			value="<?php echo htmlspecialchars($building['Wednesday']); ?>">
+			<textarea name="wednesday" rows="5" cols="20"><?php echo $tutoring['Wednesday']; ?></textarea>
 		<?php } else { ?>
-			<input type="text" name="wednesday" value="">
+			<textarea name="wednesday" rows="5" cols="20"></textarea>
 		<?php } ?>
 		<br>
 		
 		<label>*Thursday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
-			<input type="text" name="thursday"
-			value="<?php echo htmlspecialchars($building['Thursday']); ?>">
+			<textarea name="thursday" rows="5" cols="20"><?php echo $tutoring['Thursday']; ?></textarea>
 		<?php } else { ?>
-			<input type="text" name="thursday" value="">
+			<textarea name="thursday" rows="5" cols="20"></textarea>
 		<?php } ?>
 		<br>
 		
 		<label>*Friday Hours:</label>
 		<?php
 		if (isset($tutoring_id)) { ?>
-			<input type="text" name="friday"
-			value="<?php echo htmlspecialchars($building['Friday']); ?>">
+			<textarea name="friday" rows="5" cols="20"><?php echo $tutoring['Friday']; ?></textarea>
 		<?php } else { ?>
-			<input type="text" name="friday" value="">
+			<textarea name="friday" rows="5" cols="20"></textarea>
 		<?php } ?>
 		<br>
 		

@@ -7,15 +7,23 @@
 	<?php if (count($buildings) == 0) : ?>
         <p>There is no building in the system.</p>
     <?php else : ?>
-		<?php foreach ($buildings as $building) : ?>
-			<p>
-				<b><?php echo htmlspecialchars($building['Name']); ?></b>&emsp;
-				<a href="?action=show_add_edit_form&amp;building_id=<?php
-				  echo $building['ID']; ?>">Edit</a>
-				<a href="?action=delete_building&amp;building_id=<?php
-				  echo $building['ID']; ?>">Delete</a>
-			</p>
+		<table>
+			<?php foreach ($buildings as $building) : ?>
+				<tr>
+					<td>
+						<b><?php echo htmlspecialchars($building['Name']); ?></b>
+					</td>
+					<td>
+						<a href="?action=show_add_edit_form&amp;building_id=<?php
+						  echo $building['ID']; ?>">Edit</a>
+					</td>
+					<td>
+						<a href="?action=delete_building&amp;building_id=<?php
+						  echo $building['ID']; ?>">Delete</a>
+					</td>
+				</tr>
 			<?php endforeach; ?>
+		</table>
 	<?php endif; ?>
 	<br><br>
     <h1>Links</h1>

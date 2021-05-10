@@ -7,15 +7,23 @@
 	<?php if (count($ceps) == 0) : ?>
         <p>There is no policy in the system.</p>
     <?php else : ?>
-		<?php foreach ($ceps as $cep) : ?>
-			<p>
-				<b><?php echo htmlspecialchars($cep['Name']); ?></b>&emsp;
-				<a href="?action=show_add_edit_form&amp;cep_id=<?php
-				  echo $cep['ID']; ?>">Edit</a>
-				<a href="?action=delete_cep&amp;cep_id=<?php
-				  echo $cep['ID']; ?>">Delete</a>
-			</p>
+		<table>
+			<?php foreach ($ceps as $cep) : ?>
+				<tr>
+					<td>
+						<b><?php echo htmlspecialchars($cep['Name']); ?></b>
+					</td>
+					<td>
+						<a href="?action=show_add_edit_form&amp;cep_id=<?php
+						  echo $cep['ID']; ?>">Edit</a>
+					</td>
+					<td>
+						<a href="?action=delete_cep&amp;cep_id=<?php
+						  echo $cep['ID']; ?>">Delete</a>
+					</td>
+				</tr>
 			<?php endforeach; ?>
+		</table>
 	<?php endif; ?>
 	<br><br>
     <h2>Links</h2>

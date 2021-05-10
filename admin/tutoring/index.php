@@ -1,6 +1,6 @@
 <?php
 require_once('../../util/main.php');
-//require_once('util/secure_conn.php');
+require_once('util/secure_conn.php');
 require_once('util/valid_admin.php');
 require_once('model/tutoring_db.php');
 
@@ -16,7 +16,7 @@ switch ($action) {
     case 'list_tutoring':
         $tutorings = get_tutorings();
 
-        // display building list
+        // display tutoring list
         include('tutoring_list.php');
         break;
 		
@@ -84,7 +84,7 @@ switch ($action) {
                       Check all fields and try again.';
             include('../../errors/error.php');
         } else {
-            update_building($course, $title, $monday, $tuesday,
+            update_tutoring($tutoring_id, $course, $title, $monday, $tuesday,
 							$wednesday, $thursday, $friday);
             $tutorings = get_tutorings();
 			include('tutoring_list.php');

@@ -7,15 +7,23 @@
 	<?php if (count($faqs) == 0) : ?>
         <p>There is no FAQ in the system.</p>
     <?php else : ?>
-		<?php foreach ($faqs as $faq) : ?>
-			<p>
-				<b><?php echo htmlspecialchars($faq['Question']); ?></b>&emsp;
-				<a href="?action=show_add_edit_form&amp;faq_id=<?php
-				  echo $faq['ID']; ?>">Edit</a>
-				<a href="?action=delete_faq&amp;faq_id=<?php
-				  echo $faq['ID']; ?>">Delete</a>
-			</p>
+		<table>
+			<?php foreach ($faqs as $faq) : ?>
+				<tr>
+					<td>
+						<b><?php echo htmlspecialchars($faq['Question']); ?></b>
+					</td>
+					<td>
+						<a href="?action=show_add_edit_form&amp;faq_id=<?php
+						  echo $faq['ID']; ?>">Edit</a>
+					</td>
+					<td>
+						<a href="?action=delete_faq&amp;faq_id=<?php
+						  echo $faq['ID']; ?>">Delete</a>
+					</td>
+				</tr>
 			<?php endforeach; ?>
+		</table>
 	<?php endif; ?>
 	<br><br>
     <h2>Links</h2>

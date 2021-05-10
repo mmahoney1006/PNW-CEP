@@ -7,15 +7,23 @@
 	<?php if (count($campuses) == 0) : ?>
         <p>There is no campus in the system.</p>
     <?php else : ?>
-		<?php foreach ($campuses as $campus) : ?>
-			<p>
-				<b><?php echo htmlspecialchars($campus['Name']); ?></b>&emsp;
-				<a href="?action=show_add_edit_form&amp;campus_id=<?php
-				  echo $campus['ID']; ?>">Edit</a>
-				<a href="index.php?action=delete_campus&amp;campus_id=<?php
-				  echo $campus['ID']; ?>">Delete</a>
-			</p>
+		<table>
+			<?php foreach ($campuses as $campus) : ?>
+				<tr>
+					<td>
+						<b><?php echo htmlspecialchars($campus['Name']); ?></b>
+					</td>
+					<td>
+						<a href="?action=show_add_edit_form&amp;campus_id=<?php
+						  echo $campus['ID']; ?>">Edit</a>
+					</td>
+					<td>
+						<a href="index.php?action=delete_campus&amp;campus_id=<?php
+						  echo $campus['ID']; ?>">Delete</a>
+					</td>
+				</tr>
 			<?php endforeach; ?>
+		</table>
 	<?php endif; ?>
 	<br><br>
     <h2>Links</h2>

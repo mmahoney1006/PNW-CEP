@@ -7,15 +7,23 @@
 	<?php if (count($pois) == 0) : ?>
         <p>There is no point of interest in the system.</p>
     <?php else : ?>
-		<?php foreach ($pois as $poi) : ?>
-			<p>
-				<b><?php echo htmlspecialchars($poi['Name']); ?></b>&emsp;
-				<a href="?action=show_add_edit_form&amp;poi_id=<?php
-				  echo $poi['ID']; ?>">Edit</a>
-				<a href="?action=delete_poi&amp;poi_id=<?php
-				  echo $poi['ID']; ?>">Delete</a>
-			</p>
+		<table>
+			<?php foreach ($pois as $poi) : ?>
+				<tr>
+					<td>
+						<b><?php echo htmlspecialchars($poi['Name']); ?></b>
+					</td>
+					<td>
+						<a href="?action=show_add_edit_form&amp;poi_id=<?php
+						  echo $poi['ID']; ?>">Edit</a>
+					</td>
+					<td>
+						<a href="?action=delete_poi&amp;poi_id=<?php
+						  echo $poi['ID']; ?>">Delete</a>
+					</td>
+				</tr>
 			<?php endforeach; ?>
+		</table>
 	<?php endif; ?>
 	<br><br>
     <h2>Links</h2>
